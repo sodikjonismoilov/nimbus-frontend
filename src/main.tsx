@@ -8,8 +8,10 @@ import {store} from "@/store ";
 import {queryClient} from "@/lib/queryClient.ts";
 import {Toaster} from "sonner";
 import "./index.css";
+import {detectInitialTheme ,applyTheme} from "@/lib/theme";
 
-
+const initial = detectInitialTheme();
+applyTheme(initial);
 
 
 

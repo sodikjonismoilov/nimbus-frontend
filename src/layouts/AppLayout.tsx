@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom"
+import ThemeToggle from "@/components/ThemeToggle.tsx";
 
 function AppLayout() {
     return (
@@ -11,6 +12,9 @@ function AppLayout() {
                         <li><NavLink to="/bookings">Bookings</NavLink></li>
                         <li><NavLink to="/passengers">Passengers</NavLink></li>
                     </ul>
+                    <div className="absolute right-4">
+                        <ThemeToggle />
+                    </div>
                 </nav>
             </header>
             <main className="mx-auto max-w-6xl p-6">
