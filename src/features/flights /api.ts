@@ -1,16 +1,42 @@
-import { api } from "@/lib/api";
+
 
 
 export type Flight = {
-    id: string;
+    id: number;
     flightNumber: string;
-    origin?: string;
-    destination?: string;
-    departureTime?: string;
-    arrivalTime?: string;
+    originCode: string;
+    originName: string;
+    destinationCode: string;
+    destinationName: string;
+    departureTime: string;
+    arrivalTime: string;
+    totalSeats: number;
+    availableSeats: number;
+    price: number;
+    currency: string;
+
 };
 
-export async function fetchFlights(): Promise<Flight[]>  {
-    const res = await api.get<Flight[]>('/flights');
-    return res.data;
-}
+export const fetchFlights = async () => {
+    const response = await fetch("http://localhost:8080/flights");
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch flights");
+    }
+
+    const data = await response.json();
+
+    // Handle both paginated and direct array responses
+    return data.content || data;
+};
+
+// export const fetchFlights = async () => {
+//     const response = await fetch("http://localhost:8080/flights");
+//     if (!response.ok) {
+//         throw new Error("Failed to fetch flights");
+//     }
+//     const data = await response.json();
+//
+//     // If your API returns paginated data, extract the array:
+//     return data.content || data; // Adjust based on your API structure
+// };
