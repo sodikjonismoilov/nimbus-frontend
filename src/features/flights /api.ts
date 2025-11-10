@@ -30,13 +30,3 @@ export const fetchFlights = async () => {
     return data.content || data;
 };
 
-// export const fetchFlights = async () => {
-//     const response = await fetch("http://localhost:8080/flights");
-//     if (!response.ok) {
-//         throw new Error("Failed to fetch flights");
-//     }
-//     const data = await response.json();
-//
-//     // If your API returns paginated data, extract the array:
-//     return data.content || data; // Adjust based on your API structure
-// };
