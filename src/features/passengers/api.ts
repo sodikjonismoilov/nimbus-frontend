@@ -1,4 +1,4 @@
-import { api } from "../../lib/api";
+import { http} from "../../lib/api";
 
 export type Passenger = {
     id: number;
@@ -11,7 +11,7 @@ export type Passenger = {
 export async function fetchPassengers(search?: string): Promise<Passenger[]> {
     // list-all vs search
     if (!search) {
-        const res = await api.get<Passenger[]>("/passengers", {
+        const res = await http.get<Passenger[]>("/passengers", {
             params: { page: 0, size: 50 },
         });
         return res.data;
@@ -19,7 +19,7 @@ export async function fetchPassengers(search?: string): Promise<Passenger[]> {
 
     // Try the usual suspects in order
     const tryOnce = async (url: string, params: Record<string, any>) => {
-        const r = await api.get<Passenger[]>(url, { params });
+        const r = await http.get<Passenger[]>(url, { params });
         return r.data;
     };
 

@@ -1,4 +1,4 @@
-import { api } from "../../lib/api";
+import {http} from "../../lib/api";
 
 export type Booking = {
     id: number;
@@ -22,13 +22,13 @@ export type CreateBookingPayload = {
 };
 
 export async function fetchBookings(flightId?: number): Promise<Booking[]> {
-    const res = await api.get<Booking[]>("/bookings", {
+    const res = await http.get<Booking[]>("/bookings", {
         params: flightId ? { flightId } : undefined,
     });
     return res.data;
 }
 
 export async function createBooking(payload: CreateBookingPayload): Promise<Booking> {
-    const res = await api.post<Booking>("/bookings", payload);
+    const res = await http.post<Booking>("/bookings", payload);
     return res.data;
 }

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {fetchFlights, type Flight} from "@/features/flights /api.ts";
+import {fetchFlights, type Flight} from "@/features/flights/api.ts";
 
 export default function Flights() {
     const { data, isLoading, isError } = useQuery({
