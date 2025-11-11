@@ -1,7 +1,9 @@
 // src/features/external/api.ts
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/external";
+// normalize and append /external
+const ROOT = (import.meta.env.VITE_API_URL || "http://localhost:8080").replace(/\/$/, "");
+const BASE_URL = `${ROOT}/external`;
 
 /** Backend search DTO (matches your SearchOfferDTO) */
 
