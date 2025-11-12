@@ -4,7 +4,7 @@ import {fetchFlights, type Flight} from "@/features/flights/api.ts";
 export default function Flights() {
     const { data, isLoading, isError } = useQuery({
         queryKey: ["flights"],
-        queryFn: fetchFlights,
+        queryFn: () => fetchFlights(),
     });
 
     console.log("Flight data:", data);
@@ -24,7 +24,7 @@ export default function Flights() {
             ) : (
                 <div className="overflow-x-auto rounded border">
                     <table className="min-w-full text-sm">
-                        <thead className="bg-gray-50">
+                        <thead className="bg-muted/40">
                         <tr>
                             <th className="px-4 py-2 text-left">ID</th>
                             <th className="px-4 py-2 text-left">Flight</th>

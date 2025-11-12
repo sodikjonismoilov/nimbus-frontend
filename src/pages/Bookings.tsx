@@ -121,7 +121,7 @@ export default function Bookings() {
             {/* List bookings */}
             <div className="overflow-x-auto rounded border">
                 <table className="min-w-full text-sm">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-muted/40">
                     <tr>
                         <th className="px-4 py-2 text-left">ID</th>
                         <th className="px-4 py-2 text-left">Flight</th>
