@@ -9,6 +9,7 @@ import {queryClient} from "@/lib/queryClient.ts";
 import {Toaster} from "sonner";
 import "./index.css";
 import {detectInitialTheme ,applyTheme} from "@/lib/theme";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const initial = detectInitialTheme();
 applyTheme(initial);
@@ -20,8 +21,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Provider store={store}>
             <QueryClientProvider client={queryClient}>
                 <BrowserRouter>
-                    <App />
-                    <Toaster />
+                    <AuthProvider>
+                        <App />
+                        <Toaster />
+                    </AuthProvider>
                 </BrowserRouter>
             </QueryClientProvider>
         </Provider>

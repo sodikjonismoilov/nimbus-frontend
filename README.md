@@ -1,4 +1,56 @@
-# React + TypeScript + Vite
+# Nimbus Frontend
+
+A React + TypeScript + Vite application with Supabase authentication.
+
+## Features
+
+- 🔐 Supabase Authentication (Sign up, Sign in, Sign out)
+- 🎨 shadcn/ui components
+- 🌓 Dark/Light theme toggle
+- 🛡️ Protected routes
+- 📱 Responsive design
+
+## Setup
+
+### Environment Variables
+
+Create a `.env` file in the root directory with your Supabase credentials:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+You can find these values in your Supabase project settings: https://app.supabase.com/project/_/settings/api
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+## Authentication
+
+The app includes:
+- Login page (`/login`)
+- Signup page (`/signup`)
+- Protected routes (Flights, Bookings, Passengers)
+- User session management
+- Automatic redirects for unauthenticated users
+
+---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
